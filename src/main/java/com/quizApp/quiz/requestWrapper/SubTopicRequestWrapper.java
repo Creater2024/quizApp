@@ -7,4 +7,6 @@ import lombok.Setter;
 @Setter
 public class SubTopicRequestWrapper {
     private String subTopicName;
+
+    private Long topicId;
 }

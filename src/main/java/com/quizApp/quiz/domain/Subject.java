@@ -21,4 +21,5 @@ public class Subject {
 
     @OneToMany(mappedBy ="subject",cascade = CascadeType.ALL)
     private  List<Topic> topicList;
+
 }

@@ -20,6 +20,7 @@ public class Topic {
     private String name;
 
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Subject subject;
 
     @OneToMany(mappedBy = "topic")

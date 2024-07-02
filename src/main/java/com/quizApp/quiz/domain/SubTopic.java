@@ -19,7 +19,11 @@ public class SubTopic {
     private String name;
 
     @ManyToOne()
+    @JoinColumn(nullable = false)
     private Topic topic;
+
+    @ManyToOne
+    private Subject subject;
 
     @OneToMany(mappedBy = "subTopic")
     private List<Question> questionList;

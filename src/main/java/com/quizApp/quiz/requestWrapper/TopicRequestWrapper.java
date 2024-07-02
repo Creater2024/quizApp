@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class TopicRequestWrapper {
     private String topicName;
-    private String subjectName;
+    private Long subjectId;
 }
