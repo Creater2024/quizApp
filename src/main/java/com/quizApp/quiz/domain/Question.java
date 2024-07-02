@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -13,19 +15,26 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id ;
-
     @Column(name ="description")
     private String description;
     @Column(name ="image")
     private Long image;
-    @Column(name="subject")
-    private Long subject;
-    @Column(name="topic")
-    private Long topic;
-    @Column(name ="sub_topic")
-    private Long subTopic;
-    @Column(name ="options")
-    private Long[] options;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "subject_id")
+    private Subject subject;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "topic_id")
+    private Topic topic;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sub_topic_id")
+    private SubTopic subTopic;
+
+    @OneToMany(mappedBy = "question",cascade = CascadeType.ALL)
+    private List<Options> optionsList;
+
     @Column(name="correct_option")
     private Long correctOption;
     @Column(name ="solution")

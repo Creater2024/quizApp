@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -17,6 +19,12 @@ public class Topic {
     @Column(name ="topic_name")
     private String name;
 
-    @Column(name = "subject")
-    private Long subject;
+    @ManyToOne
+    private Subject subject;
+
+    @OneToMany(mappedBy = "topic")
+    private List<Question> questionList;
+
+    @OneToMany(mappedBy = "topic",cascade = CascadeType.ALL)
+    private List<SubTopic> subTopicList;
 }

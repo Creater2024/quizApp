@@ -1,5 +1,5 @@
 package com.quizApp.quiz.domain;
-
+import java.util.List;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,5 +16,9 @@ public class Subject {
     @Column(name ="subject_name")
     private String name;
 
+    @OneToMany(mappedBy = "subject")
+    private List<Question> questionList;
 
+    @OneToMany(mappedBy ="subject",cascade = CascadeType.ALL)
+    private  List<Topic> topicList;
 }

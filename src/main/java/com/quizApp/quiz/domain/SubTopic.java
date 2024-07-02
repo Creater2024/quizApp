@@ -1,7 +1,13 @@
 package com.quizApp.quiz.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "sub_topic")
 public class SubTopic {
@@ -11,6 +17,10 @@ public class SubTopic {
     private Long id ;
     @Column(name = "sub_topic_name")
     private String name;
-    @Column(name ="topic")
-    private Long topic;
+
+    @ManyToOne()
+    private Topic topic;
+
+    @OneToMany(mappedBy = "subTopic")
+    private List<Question> questionList;
 }
