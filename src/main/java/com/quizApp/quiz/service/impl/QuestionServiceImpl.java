@@ -65,6 +65,7 @@ public class QuestionServiceImpl implements QuestionService {
             options.setValue(option.getValue());
             options.setQuestion(question);
             options.setOptionCorrect(option.isOptionCorrect());
+            System.out.println("isOptionCorrect :" + option.isOptionCorrect());
             question.addOption(options);
         });
         question.setDescription(requestWrapper.getDescription());

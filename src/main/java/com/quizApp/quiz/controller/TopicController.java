@@ -22,7 +22,6 @@ public class TopicController {
     @RequestMapping(value = "/addTopic",method = RequestMethod.POST)
     public ResponseEntity<JSONObject> addTopic(@RequestBody TopicRequestWrapper requestWrapper){
         topicService.createTopic(requestWrapper);
-        System.out.println(requestWrapper.getTopicName());
         JSONObject Data = new JSONObject("Success",200,"Success");
         return new ResponseEntity<>(Data, HttpStatus.OK);
     }

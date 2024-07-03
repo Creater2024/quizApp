@@ -20,7 +20,6 @@ public class SubTopicController {
     private SubTopicService subTopicService;
     @RequestMapping(value = "/addSubTopic",method = RequestMethod.POST)
     public ResponseEntity<JSONObject> addSubTopic(@RequestBody SubTopicRequestWrapper requestWrapper){
-        System.out.println(requestWrapper.getSubTopicName());
         subTopicService.createSubTopic(requestWrapper);
         JSONObject Data = new JSONObject("Success",200,"Success");
         return new ResponseEntity<>(Data, HttpStatus.OK);
