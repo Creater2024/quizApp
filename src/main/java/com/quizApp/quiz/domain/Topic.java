@@ -19,13 +19,9 @@ public class Topic {
     @Column(name ="topic_name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Subject subject;
+    @Column(name ="subject_id")
+    private Long subjectId;
 
-    @OneToMany(mappedBy = "topic")
-    private List<Question> questionList;
 
-    @OneToMany(mappedBy = "topic",cascade = CascadeType.ALL)
-    private List<SubTopic> subTopicList;
+
 }

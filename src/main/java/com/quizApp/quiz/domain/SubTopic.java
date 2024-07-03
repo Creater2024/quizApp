@@ -18,13 +18,10 @@ public class SubTopic {
     @Column(name = "sub_topic_name")
     private String name;
 
-    @ManyToOne()
-    @JoinColumn(nullable = false)
-    private Topic topic;
+    @Column(name = "topic_id",nullable = false)
+    private Long topicId;
 
-    @ManyToOne
-    private Subject subject;
+    @Column(name = "subject_id",nullable = false)
+    private Long subjectId;
 
-    @OneToMany(mappedBy = "subTopic")
-    private List<Question> questionList;
 }

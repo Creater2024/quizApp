@@ -21,6 +21,7 @@ public class SubjectController {
 
     @RequestMapping(value="/addSubject",method = RequestMethod.POST)
     public ResponseEntity<JSONObject> addSubject(@RequestBody SubjectRequestWrapper requestWrapper){
+
         subjectService.createSubject(requestWrapper);
         JSONObject Data = new JSONObject("Success",200,"Success");
         return new ResponseEntity<>(Data, HttpStatus.OK);

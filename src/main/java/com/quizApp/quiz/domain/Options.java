@@ -1,5 +1,6 @@
 package com.quizApp.quiz.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +17,11 @@ public class Options {
     @Column(name ="value")
     private String value;
 
+    @Column(name ="is_option_correct")
+    private boolean isOptionCorrect;
+
     @ManyToOne
+    @JoinColumn(name = "question_id", nullable = false)
+    @JsonBackReference
     private Question question;
 }

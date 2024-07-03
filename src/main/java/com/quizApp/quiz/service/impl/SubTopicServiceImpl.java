@@ -27,11 +27,10 @@ public class SubTopicServiceImpl implements SubTopicService {
     public void createSubTopic(SubTopicRequestWrapper requestWrapper){
         Topic topic = topicRepository.findById(requestWrapper.getTopicId())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid Topic ID: " + requestWrapper.getTopicId()));
-        Subject subject = topic.getSubject();
         SubTopic subTopic = new SubTopic();
         subTopic.setName(requestWrapper.getSubTopicName());
-        subTopic.setTopic(topic);
-        subTopic.setSubject(subject);
+        subTopic.setTopicId(requestWrapper.getTopicId());
+        subTopic.setSubjectId(topic.getSubjectId());
         subTopicRepository.save(subTopic);
     }
 }

@@ -1,9 +1,11 @@
 package com.quizApp.quiz.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -33,11 +35,22 @@ public class Question {
     private SubTopic subTopic;
 
     @OneToMany(mappedBy = "question",cascade = CascadeType.ALL)
-    private List<Options> optionsList;
+    @JsonManagedReference
+    private List<Options> optionsList =  new ArrayList<>();
 
-    @Column(name="correct_option")
-    private Long correctOption;
+//    @Column(name="correct_option")
+//    private List<Options> correctOptionList = new ArrayList<>();
     @Column(name ="solution")
     private Long solution;
+
+    public void addOption(Options option) {
+        optionsList.add(option);
+        option.setQuestion(this);
+    }
+
+    public void removeOption(Options option) {
+        optionsList.remove(option);
+    }
+
 
 }

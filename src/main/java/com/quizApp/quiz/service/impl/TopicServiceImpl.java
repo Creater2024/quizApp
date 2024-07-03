@@ -27,7 +27,7 @@ public class TopicServiceImpl implements TopicService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid subject ID"));
         Topic topic = new Topic();
         topic.setName(requestWrapper.getTopicName());
-        topic.setSubject(subject);
+        topic.setSubjectId(requestWrapper.getSubjectId());
         topicRepository.save(topic);
     }
 }
