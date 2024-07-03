@@ -23,6 +23,9 @@ public class TopicServiceImpl implements TopicService {
     }
 
     public void createTopic(TopicRequestWrapper requestWrapper){
+        if(requestWrapper == null || requestWrapper.getTopicName() == null || requestWrapper.getTopicName().trim().isBlank()){
+            throw new IllegalArgumentException("topic name is not found");
+        }
         Subject subject = subjectRepository.findById(requestWrapper.getSubjectId())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid subject ID"));
         Topic topic = new Topic();

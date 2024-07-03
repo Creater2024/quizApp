@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
@@ -14,10 +15,10 @@ public class Options {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
-    @Column(name ="value")
+    @Column(name ="value",nullable = false)
     private String value;
 
-    @Column(name ="is_option_correct")
+    @Column(name ="is_option_correct",nullable = false)
     private boolean isOptionCorrect;
 
     @ManyToOne

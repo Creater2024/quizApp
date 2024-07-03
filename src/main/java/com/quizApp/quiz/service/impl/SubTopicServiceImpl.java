@@ -25,6 +25,9 @@ public class SubTopicServiceImpl implements SubTopicService {
 
     @Override
     public void createSubTopic(SubTopicRequestWrapper requestWrapper){
+        if(requestWrapper == null || requestWrapper.getSubTopicName() == null || requestWrapper.getSubTopicName().trim().isBlank()){
+            throw new IllegalArgumentException("sub topic name is not found");
+        }
         Topic topic = topicRepository.findById(requestWrapper.getTopicId())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid Topic ID: " + requestWrapper.getTopicId()));
         SubTopic subTopic = new SubTopic();

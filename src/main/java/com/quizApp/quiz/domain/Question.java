@@ -2,6 +2,7 @@ package com.quizApp.quiz.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,17 +18,17 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id ;
-    @Column(name ="description")
+    @Column(name ="description",nullable = false)
     private String description;
     @Column(name ="image")
     private Long image;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "subject_id")
+    @JoinColumn(name = "subject_id",nullable = false)
     private Subject subject;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "topic_id")
+    @JoinColumn(name = "topic_id",nullable = false)
     private Topic topic;
 
     @ManyToOne(cascade = CascadeType.ALL)

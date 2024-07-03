@@ -37,6 +37,9 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public void createQuestion(QuestionRequestWrapper requestWrapper){
+        if(requestWrapper == null || requestWrapper.getDescription() == null || requestWrapper.getDescription().trim().isBlank()){
+            throw new IllegalArgumentException("Desciption is not found");
+        }
         Subject subject = new Subject();
         Topic topic = new Topic();
         SubTopic subTopic = new SubTopic();
@@ -61,6 +64,9 @@ public class QuestionServiceImpl implements QuestionService {
             question.setSubject(subject);
         }
         requestWrapper.getOptionsList().forEach(option -> {
+            if(option == null || option.getValue() == null || option.getValue().trim().isBlank()){
+                throw new IllegalArgumentException("option value is not found");
+            }
             Options options = new Options();
             options.setValue(option.getValue());
             options.setQuestion(question);

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.quizApp.quiz.requestWrapper.SubjectRequestWrapper;
 import com.quizApp.quiz.response.JSONObject;
 import com.quizApp.quiz.service.SubjectService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +22,13 @@ public class SubjectController {
 
     @RequestMapping(value="/addSubject",method = RequestMethod.POST)
     public ResponseEntity<JSONObject> addSubject(@RequestBody SubjectRequestWrapper requestWrapper){
-
-        subjectService.createSubject(requestWrapper);
-        JSONObject Data = new JSONObject("Success",200,"Success");
-        return new ResponseEntity<>(Data, HttpStatus.OK);
+        try {
+            subjectService.createSubject(requestWrapper);
+            return new ResponseEntity<>(new JSONObject("Success", 200, "Question added successfully"), HttpStatus.OK);
+        } catch (IllegalArgumentException | EntityNotFoundException e) {
+            return new ResponseEntity<>(new JSONObject("Error", 400, e.getMessage()), HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity<>(new JSONObject("Error", 500, "Internal server error", e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

@@ -1,8 +1,10 @@
 package com.quizApp.quiz.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
 
@@ -16,10 +18,10 @@ public class Topic {
     @Column(name = "id")
     private Long id;
 
-    @Column(name ="topic_name")
+    @Column(name ="topic_name",nullable = false)
     private String name;
 
-    @Column(name ="subject_id")
+    @Column(name ="subject_id",nullable = false)
     private Long subjectId;
 
 

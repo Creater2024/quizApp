@@ -1,6 +1,7 @@
 package com.quizApp.quiz.domain;
 import java.util.List;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +14,7 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
-    @Column(name ="subject_name")
+    @Column(name ="subject_name",nullable = false)
     private String name;
 
 }

@@ -19,6 +19,9 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public void createSubject(SubjectRequestWrapper requestWrapper){
+        if(requestWrapper == null || requestWrapper.getName() == null ||requestWrapper.getName().trim().isEmpty()){
+            throw new IllegalArgumentException("name is not found");
+        }
       Subject subject = new Subject();
       subject.setName(requestWrapper.getName());
       subjectRepository.save(subject);
