@@ -18,7 +18,7 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id ;
-    @Column(name ="description",nullable = false)
+    @Column(name ="description",nullable = false,columnDefinition = "TEXT")
     private String description;
     @Column(name ="image")
     private Long image;
