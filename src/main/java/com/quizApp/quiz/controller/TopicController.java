@@ -32,6 +32,7 @@ public class TopicController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/getAllSubTopic",method = RequestMethod.GET)
     public ResponseEntity<JSONObject> getAllSubTopic(@RequestParam(name = "topic_id",required = true) Long topicId){
         try {

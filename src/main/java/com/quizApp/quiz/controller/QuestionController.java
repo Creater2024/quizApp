@@ -30,6 +30,7 @@ public class QuestionController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/getAllQuestion",method = RequestMethod.GET)
     public ResponseEntity<JSONObject> getAllQuestions(@RequestParam(name = "subject_id",required = false) Long subjectId,
                                                       @RequestParam(name = "topic_id",required = false)Long topicId,

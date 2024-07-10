@@ -33,6 +33,7 @@ public class SubjectController {
             return new ResponseEntity<>(new JSONObject("Error", 500, "Internal server error", e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/getAllTopics",method = RequestMethod.GET)
     public ResponseEntity<JSONObject> getAllTopics(@RequestParam(name = "subject_id",required = true) Long subjectId){
         try {
@@ -44,6 +45,7 @@ public class SubjectController {
             return new ResponseEntity<>(new JSONObject("Error", 500, "Internal server error", e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/getAllSubjects",method = RequestMethod.GET)
     public ResponseEntity<JSONObject> getAllSubjects(){
         try {
