@@ -1,6 +1,7 @@
 package com.quizApp.quiz.repository;
 
 import com.quizApp.quiz.domain.Question;
+import com.quizApp.quiz.domain.SubTopic;
 import com.quizApp.quiz.domain.Topic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,4 +12,7 @@ import java.util.List;
 public interface TopicRepository extends JpaRepository<Topic,Long> {
     @Query("SELECT q FROM Question q WHERE q.topic.id = :topicId AND q.subject.id = :subjectId")
     List<Question> findAllQuestionsByTopicIdAndSubjectId(@Param("topicId") Long topicId, @Param("subjectId") Long subjectId);
+
+    @Query("SELECT st FROM SubTopic st WHERE st.topicId = :topicId")
+    List<SubTopic> findAllSubTopicByTopic(@Param("topicId") Long topicId);
 }

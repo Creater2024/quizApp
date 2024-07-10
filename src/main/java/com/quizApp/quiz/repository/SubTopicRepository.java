@@ -15,4 +15,7 @@ public interface SubTopicRepository extends JpaRepository<SubTopic,Long> {
                                                                       @Param("topicId") Long topicId,
                                                                       @Param("subjectId") Long subjectId);
 
+
+
+
 }

@@ -27,8 +27,6 @@ v
 Fsrc/main/java/com/quizApp/quiz/requestWrapper/TopicRequestWrapper.java,2\4\24814d0c0a1a670decbff528280c83ba1ed9e8aa
 y
 Isrc/main/java/com/quizApp/quiz/requestWrapper/SubTopicRequestWrapper.java,d\3\d383257913eec61f9cff13c054e351cc4c9b9485
-w
-Gsrc/main/java/com/quizApp/quiz/exception/ResourceNotFoundException.java,7\0\70d139af9691207e0ebd4ecc4473d3ffb22dc53b
 g
 7src/main/java/com/quizApp/quiz/response/JSONObject.java,6\2\624bcc57fbb297d8959ca05fe60cc23ca24b4fde
 q
@@ -51,3 +49,7 @@ q
 Asrc/main/java/com/quizApp/quiz/repository/SubTopicRepository.java,3\1\313f905ea4afd823fbf4d78cb5e050f6424adf2f
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+j
+:src/main/java/com/quizApp/quiz/service/SubjectService.java,3\3\338b1a9e27b57bb19488a42189362e7b7e4fec30
+h
+8src/main/java/com/quizApp/quiz/service/TopicService.java,4\c\4cbd69fc20dfba92cf77307d8551c0f364027593
